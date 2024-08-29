@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %}Chamba{% endblock %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "jobs/job.css" %}" />
+    <link rel="stylesheet" href="{% static "jobs/index.css" %}" />
+{% endblock  %}
+
+{% block content %}
+
+
+<section id="welcome">
+    <header>
+        <img src="{% static "jobs/images/coding.jpg" %}" alt="Find your next J-O-B!">
+        <h2>Job Board</h2>
+    </header>
+    <p>Find your next career!</p>
+</section>
+
+<section id="latest-jobs">
+    <header>
+        <h2>Latest Jobs</h2>
+    </header>
+    <ul>
+        {% include "jobs/includes/job.html" %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>About Chamba</h2>
+    <p>A place to help you find your next career.</p>
+</section>
+  
+{% endblock  %}

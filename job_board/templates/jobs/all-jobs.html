@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}All Jobs{% endblock %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "jobs/job.css" %}"/>
+    <link rel="stylesheet" href="{% static "jobs/all-jobs.css" %}"
+{% endblock  %}
+
+{% block content %}
+    <section id="all-jobs">
+        <h2>All Jobs</h2>
+        <ul>
+            {% include "jobs/includes/job.html" %}
+            {% include "jobs/includes/job.html" %}
+            {% include "jobs/includes/job.html" %}
+            {% include "jobs/includes/job.html" %}
+            {% include "jobs/includes/job.html" %}
+            {% include "jobs/includes/job.html" %}
+        </ul>
+    </section>
+{% endblock %}
