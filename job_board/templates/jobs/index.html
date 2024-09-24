@@ -23,7 +23,9 @@
         <h2>Latest Jobs</h2>
     </header>
     <ul>
-        {% include "jobs/includes/job.html" %}
+        {% for job in jobs %}
+            {% include "jobs/includes/job.html" %}
+        {% endfor %}
     </ul>
 </section>
 

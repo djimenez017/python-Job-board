@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.urls import reverse
 
-jobs = [
+all_jobs = [
     {
         "job_title": "Software Engineer",
         "description": "Develop, test, and maintain software applications. Work with a team to design scalable systems and write efficient code.",
@@ -96,10 +97,18 @@ jobs = [
 
 # Create your views here.
 def starting_page(request):
-    return render(request, "jobs/index.html")
+    latest_jobs= all_jobs
+    return render(request, "jobs/index.html", {
+        "jobs": latest_jobs
+    })
 
 def jobs(request):
-    return render(request, "jobs/all-jobs.html")
+  return render(request, "jobs/index.html", {
+        "jobs": all_jobs
+    })
 
 def job_detail(request, slug):
-    return render(request, "jobs/job-detail.html")
+    job_post = next(job for job in all_jobs if job['slug']== slug)
+    return render(request, "jobs/job-detail.html", {
+       "job": job_post
+    })
